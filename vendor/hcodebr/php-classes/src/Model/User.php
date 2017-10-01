@@ -236,6 +236,36 @@ class User extends Model
 	}
 
 
+
+	public static function setForgotUsed($idrecovery)
+	{
+		$sql = new Sql();
+
+		$sql->query("UPDATE tb_userspasswordsrecoveries SET 
+			td_recovery = NOW() WHERE idrecovery = :idrecovery
+		", array(
+
+			":idrecovery" => $idrecovery
+
+		));
+	}
+
+
+	public function setPassword($password)
+	{
+		$sql = new Sql();
+
+		$sql->query("UPDATE tb_users SET despassword = :despassword WHERE iduser = :iduser", array(
+
+			":password" => $password,
+			":iduser"   => $this->getiduser()
+
+
+
+		));
+	}
+
+
 }
 
 ?>
