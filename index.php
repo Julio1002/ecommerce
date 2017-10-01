@@ -24,7 +24,9 @@ $app->get('/', function() {
 $app->get('/admin', function(){
 
 	
+
 	User::verifyLogin();
+
 	$page = new PageAdmin();
 	$page->setTpl("index");
 
@@ -61,6 +63,7 @@ $app->get('/admin/logout', function(){
 $app->get('/admin/users', function() {
 
 	User::verifyLogin();
+
 	$users = User::listAll();
 
 	$page = new PageAdmin();
@@ -255,9 +258,9 @@ $app->get("/admin/categories/create", function(){
 
 $app->post("/admin/categories/create", function(){
 
-	$page = new PagsAdmin();
+	$page = new PageAdmin();
 
-	$page->setTpl("create");
+	$page->setTpl("categories");
 });
 
 	
