@@ -236,5 +236,32 @@ $app->post("/admin/forgot/reset", function() {
 });
 
 
+$app->get("/admin/categories", function(){
+
+	$page = new PageAdmin();
+
+	$page->setTpl("categories");
+
+
+});
+
+$app->get("/admin/categories/create", function(){
+
+	$page = new PageAdmin();
+
+	$page->setTpl("categories-create");
+
+});
+
+$app->post("/admin/categories/create", function(){
+
+	$page = new PagsAdmin();
+
+	$page->setTpl("create");
+});
+
+	
+
+
 $app->run();
 
