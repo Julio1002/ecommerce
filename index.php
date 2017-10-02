@@ -173,7 +173,7 @@ $app->get('/admin/forgot', function() {
 
 $app->post("/admin/forgot", function() {
 
-	$user = User::getForgot($_POST['email']);
+	$user = User::getForgot($_POST["email"]);
 
 	header("Location: /admin/forgot/sent");
 	exit;
@@ -194,7 +194,7 @@ $app->get("/admin/forgot/sent", function() {
 
 $app->get("/admin/forgot/reset", function() {
 
-	$user = User::validForgotDecrypt($_GET['code']);
+	$user = User::validForgotDecrypt($_GET["code"]);
 
 	$page = new PageAdmin([
 		"header" => false,
@@ -204,7 +204,7 @@ $app->get("/admin/forgot/reset", function() {
 
 	$page->setTpl("forgot-reset", array(
 
-		"name" => $user['deperson'],
+		"name" => $user['desperson'],
 		"code" => $_GET['code']
 	));
 
@@ -213,15 +213,15 @@ $app->get("/admin/forgot/reset", function() {
 
 $app->post("/admin/forgot/reset", function() {
 
-	$forgot = User::validForgotDecrypt($_GET['code']);
+	$forgot = User::validForgotDecrypt($_POST["code"]);
 
-	User::setForgotUsed($forgot['idrecovery']);
+	User::setFogotUsed($forgot["idrecovery"]);
 
 	$user = new User();
 
-	$user->get((int) $forgot['iduser']);
+	$user->get((int)$forgot['iduser']);
 
-	$password = password_hash($_POST['password'], PASSWORD_DEFAULT, [
+	$password = password_hash($_POST["password"], PASSWORD_DEFAULT, [
 		"cost" => 12
 	]);
 

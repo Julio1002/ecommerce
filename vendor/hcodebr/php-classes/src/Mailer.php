@@ -9,7 +9,7 @@ class Mailer
 {
 
 	const USERNAME  = "juliocsilvapdr@gmail.com";
-	const PASSWORD  = "JULIOkokotinhas";
+	const PASSWORD  = "senhaminhasenha;
 	const NAME_FROM = "Curso Saber";
 
 	private $mail;
@@ -59,7 +59,7 @@ class Mailer
 
 		$this->mail->msgHTML($html);
 
-		$this->mail->AltBody =  "";
+		$this->mail->AltBody =  "Texto Plano!";
 	}
 
 	public function send()
