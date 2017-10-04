@@ -68,7 +68,7 @@ public static function updateFile()
 
 	foreach ($categories as $row)
 	{
-		array_push($html, '<li><a href="/category.html/'.$row['idcategory'].'">'.$row['descategory'].'</a></li>');
+		array_push($html, '<li><a href="/categories/'.$row['idcategory'].'">'.$row['descategory'].'</a></li>');
 	}
 
 

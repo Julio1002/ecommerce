@@ -298,12 +298,15 @@ $app->post("/admin/categories/:idcategory", function($idcategory){
 $app->get("/categories/:idcategory", function($idcategory) 
 	{
 
-			$category = new Category();
-			$category->get((int)$idcategory);
+			$categories = new Category();
+			$categories->get((int)$idcategory);
 
 			$page = new Page();
-			$page->setTpl("categories", [
-				"category" => $category->getValues()
+			$page->setTpl("category", [
+
+				'category' => $categories->getValues(),
+				'products' => []
+
 			]);
 
 	});

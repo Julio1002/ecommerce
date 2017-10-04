@@ -1,9 +1,9 @@
-<div class="product-big-title-area">
+<?php if(!class_exists('Rain\Tpl')){exit;}?><div class="product-big-title-area">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="product-bit-title text-center">
-                    <h2>{$category.descategory}</h2>
+                    <h2><?php echo htmlspecialchars( $category["descategory"], ENT_COMPAT, 'UTF-8', FALSE ); ?></h2>
                 </div>
             </div>
         </div>
@@ -15,7 +15,8 @@
     <div class="container">
         <div class="row">
 
-            {loop="$products"}
+            <?php $counter1=-1;  if( isset($products) && ( is_array($products) || $products instanceof Traversable ) && sizeof($products) ) foreach( $products as $key1 => $value1 ){ $counter1++; ?>
+
             <div class="col-md-3 col-sm-6">
                 <div class="single-shop-product">
                     <div class="product-upper">
@@ -31,7 +32,8 @@
                     </div>                       
                 </div>
             </div>
-            {/loop}
+            <?php } ?>
+
         
         <div class="row">
             <div class="col-md-12">
